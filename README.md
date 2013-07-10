@@ -1,4 +1,4 @@
 exodb
 =====
 
-Homebrew database operators written in c++
+Homebrew database operators written in c++.

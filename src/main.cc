@@ -22,10 +22,8 @@ std::istream& operator>>(std::istream &is, struct edge &edge)
 }
 
 int main() {
-  //  auto op = std::unique_ptr<exodb::Operator<std::string, std::string>>(
-  //  new exodb::Scan<std::string, std::string>("../data/small.al"));
-  exodb::Operator<edge> *op =
-      new exodb::Scan<edge>("../data/tiny.al");
+  auto op = std::unique_ptr<exodb::Operator<edge> >
+      (new exodb::FileStreamScan<edge>("../data/tiny.al"));
 
   op->Open();
 

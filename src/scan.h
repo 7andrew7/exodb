@@ -2,17 +2,16 @@
 
 #include <assert.h>
 #include <fstream>
-#include <tuple>
 
 #include "operator.h"
 
 namespace exodb {
 
 template <typename T>
-class Scan : public Operator<T> {
+class FileStreamScan : public Operator<T> {
  public:
-  explicit Scan(const std::string &file_name): file_name_(file_name),
-                                               ifstream_() { }
+  explicit FileStreamScan(const std::string &file_name):
+      file_name_(file_name), ifstream_() { }
 
   virtual void Open() {
     ifstream_.open(file_name_);
